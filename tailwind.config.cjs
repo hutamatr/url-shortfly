@@ -12,6 +12,13 @@ module.exports = {
         "neutral-very-dark-blue": "hsl(255, 11%, 22%)",
         "neutral-very-dark-violet": "hsl(260, 8%, 14%)",
       },
+      backgroundImage: {
+        "bg-shorten-mobile": "url('./src/assets/images/bg-shorten-mobile.svg')",
+        "bg-shorten-desktop":
+          "url('./src/assets/images/bg-shorten-desktop.svg')",
+        "bg-boost-mobile": "url('./src/assets/images/bg-boost-mobile.svg')",
+        "bg-boost-desktop": "url('./src/assets/images/bg-boost-desktop.svg')",
+      },
     },
   },
   plugins: [],
