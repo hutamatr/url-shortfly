@@ -8,7 +8,7 @@ interface Props {
 }
 
 const Input = forwardRef<HTMLInputElement, Props>(
-  ({ placeholder, onChange, className, value }, ref) => {
+  ({ placeholder, className, value, onChange }, ref) => {
     return (
       <input
         type="text"
