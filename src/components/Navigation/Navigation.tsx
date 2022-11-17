@@ -13,7 +13,7 @@ const Navigation = () => {
   const menuCLoseOnMobile = () => setMenuView(false);
 
   return (
-    <nav className="flex flex-row items-center justify-between py-6 px-4">
+    <nav className="flex flex-row items-center justify-between py-4 px-4">
       <img src={logo} alt="Shortly" />
 
       <div>

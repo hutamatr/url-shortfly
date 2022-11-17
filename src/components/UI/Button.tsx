@@ -6,7 +6,7 @@ interface Props {
   onClick?: () => void;
 }
 
-const Button: React.FC<Props> = ({ className, children, onClick }) => {
+const Button = ({ className, children, onClick }: Props) => {
   return (
     <button
       className={`${className} bg-primary-cyan font-bold text-white`}
