@@ -28,12 +28,14 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![Desktop](https://github.com/hutamatr/url-shortening-app/blob/develop/src/assets/screenshoot/desktop.png)
+
+![Mobile GIF](https://github.com/hutamatr/url-shortening-app/blob/develop/src/assets/screenshoot/mobile.gif)
 
 ### Links
 
 - Solution URL: [Solution]()
-- Live Site URL: [Demo]()
+- Live Site URL: [Demo](https://url-shortening-app-hutamatr.vercel.app/)
 
 ## My process
 
