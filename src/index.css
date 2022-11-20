@@ -25,6 +25,7 @@ body {
 
 ::-webkit-scrollbar {
   width: 0.65rem;
+  height: 0.5rem;
 }
 
 ::-webkit-scrollbar:hover {
@@ -33,13 +34,13 @@ body {
 
 ::-webkit-scrollbar-track {
   border-radius: 1rem;
-  background: #E6E1DC;
+  background: #ececec;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: hsl(180, 66%, 49%);
+  background: hsl(257, 27%, 26%);
   border-radius: 1rem;
-  border: 3px solid #E6E1DC;
+  border: 2px solid hsl(180, 66%, 49%);
 }
 
 @layer components {
