@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { useMutation } from "@tanstack/react-query";
-import axios, { AxiosResponse } from "axios";
+import axios from "axios";
 
 import Input from "../UI/Input";
 import Button from "../UI/Button";
