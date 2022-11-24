@@ -13,12 +13,10 @@ module.exports = {
         "neutral-very-dark-violet": "hsl(260, 8%, 14%)",
       },
       backgroundImage: {
-        "bg-shorten-mobile":
-          "url('./src/assets/images/bg-shorten-mobile.webp')",
-        "bg-shorten-desktop":
-          "url('./src/assets/images/bg-shorten-desktop.webp')",
-        "bg-boost-mobile": "url('./src/assets/images/bg-boost-mobile.webp')",
-        "bg-boost-desktop": "url('./src/assets/images/bg-boost-desktop.webp')",
+        "shorten-mobile": "url('src/assets/images/bg-shorten-mobile.webp')",
+        "shorten-desktop": "url('src/assets/images/bg-shorten-desktop.webp')",
+        "boost-mobile": "url('src/assets/images/bg-boost-mobile.webp')",
+        "boost-desktop": "url('src/assets/images/bg-boost-desktop.webp')",
       },
     },
   },
