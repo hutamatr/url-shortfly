@@ -65,7 +65,7 @@ const LinkInput = () => {
 
   return (
     <section className="mx-auto flex max-w-4xl flex-col sm:px-5 lg:px-0">
-      <div className="relative bottom-20 my-5 mx-4 rounded-md bg-primary-dark-violet bg-bg-shorten-mobile bg-[length:250px_120px] bg-right-top bg-no-repeat p-4 sm:bottom-16 sm:mx-auto sm:h-24 sm:max-w-4xl sm:bg-bg-shorten-desktop sm:bg-cover sm:p-6 md:w-full">
+      <div className="relative bottom-20 my-5 mx-4 rounded-md bg-primary-dark-violet bg-shorten-mobile bg-[length:250px_120px] bg-right-top bg-no-repeat p-4 sm:bottom-16 sm:mx-auto sm:h-24 sm:max-w-4xl sm:bg-shorten-desktop sm:bg-cover sm:p-6 md:w-full">
         <form
           onSubmit={submitFormHandler}
           className="flex flex-col gap-y-4 sm:flex-row sm:gap-x-4"
