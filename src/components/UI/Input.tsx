@@ -4,7 +4,7 @@ interface Props {
   placeholder: string;
   className: string;
   value?: string;
-  onChange?: () => void;
+  onChange?: (_e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const Input = forwardRef<HTMLInputElement, Props>(

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 
@@ -15,32 +15,40 @@ export interface LinksData {
 const LinkInput = () => {
   const [linksData, setLinksData] = useState<LinksData[]>([]);
   const [isFormEmpty, setIsFormEmpty] = useState<boolean>(false);
-  const inputRef = useRef<HTMLInputElement>(null);
+  const [inputLink, setInputLink] = useState<string>("");
 
   const { isLoading, isError, error, mutate } = useMutation({
     mutationFn: async (inputLink: string) => {
-      const URL = `https://api.shrtco.de/v2/shorten?url=${inputLink}`;
       const response = await axios({
         method: "POST",
-        url: URL,
+        url: `${import.meta.env.VITE_BITLY_API_URL}`,
+        headers: {
+          Authorization: `Bearer ${import.meta.env.VITE_BITLY_ACCESS_TOKEN}`,
+          "Content-Type": "application/json",
+        },
+        data: {
+          long_url: inputLink,
+          domain: "bit.ly",
+          group_guid: `${import.meta.env.VITE_BITLY_GROUP_GUID}`,
+        },
       });
 
-      if (response.status !== 201) {
+      if (response.status >= 400) {
         throw new Error("Network response was not ok");
       }
 
       return response;
     },
     onSettled: (data) => {
-      if (data && inputRef.current) {
-        inputRef.current.value = "";
-        const { full_short_link2, original_link } = data?.data.result;
+      console.log("link-data", data);
+      if (data) {
+        const { link, long_url } = data?.data;
         setLinksData((prevState) => {
           return [
             {
               id: Date.now().toString(),
-              shortLink: full_short_link2,
-              original_link: original_link,
+              shortLink: link,
+              original_link: long_url,
             },
             ...prevState,
           ];
@@ -52,11 +60,17 @@ const LinkInput = () => {
     },
   });
 
+  const inputChangeHandler = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ): void => {
+    setInputLink(event.currentTarget.value);
+  };
+
   const submitFormHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const linkInput = inputRef.current?.value;
-    if (linkInput) {
-      mutate(linkInput);
+
+    if (inputLink) {
+      mutate(inputLink);
       setIsFormEmpty(false);
     } else {
       setIsFormEmpty(true);
@@ -78,7 +92,8 @@ const LinkInput = () => {
                   ? "bg-red-50 outline outline-red-400 placeholder:text-red-300"
                   : ""
               }`}
-              ref={inputRef}
+              value={inputLink}
+              onChange={inputChangeHandler}
             />
             {isFormEmpty && (
               <span className="text-xs text-red-400">Please add a link</span>
@@ -96,7 +111,7 @@ const LinkInput = () => {
         linksData={linksData}
         isLoading={isLoading}
         isError={isError}
-        error={error?.response.data.error}
+        error={error?.message as string}
       />
     </section>
   );
